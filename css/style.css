@@ -5,6 +5,7 @@ body {
     font-family: Avenir Next LT Pro, sans-serif;
     overflow-x: hidden;
     background: #40839c;
+    height: 759px;
 }
 
 .controls{
@@ -34,11 +35,28 @@ img{
     border-radius: 50px;
     margin: auto;
     text-align: center;
+    cursor: pointer;
 }
 .controls .weird-button p {
     color: white;
     font-size: 20px;
     margin: 0;
     position: relative;
-    top: 15px;
+
+}
+
+.padButt{
+    width:200px;
+    height:100px;
+    background:black;
+    text-align: center;
+    cursor: pointer;
+}
+
+.padButtL{
+    width:300px;
+    height:100px;
+    background:black;
+    text-align: center;
+    cursor: pointer;
 }

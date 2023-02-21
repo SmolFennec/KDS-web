@@ -13,13 +13,22 @@
     </p>
 </div>
 
+<script>
+    function makeKey(){
+        localStorage.setItem("key", "0");
+        window.open("control.html");
+    }
+</script>
+
 <div class="controls">
     <div class="access">
         <img src="img/acess.png" alt="Accessibility options">
     </div>
-    <div class="weird-button">
+
+    <button onclick="makeKey()" class="weird-button">
         <p>Control panel</p>
-    </div>
+    </button>
+
     <div class="settings">
         <img src="img/settings.png" alt="Settings">
     </div>

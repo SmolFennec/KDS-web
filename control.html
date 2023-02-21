@@ -7,47 +7,57 @@
 </head>
 <body>
 
-<div style="width:200px; height:100px; background:black; text-align: center; position: relative; top:50px; left: 7%">
-    <p style="color: white; font-size: 20px; margin:0px; position: relative; top: 15px">
+<button onclick="myFunction();" class="padButt"  style="position: relative; top:50px; left: 7%">
+    <p style="color: white; font-size: 20px; margin:0px;">
         Send burger to KDS
     </p>
-</div>
+</button>
 
-<div style="width:200px; height:100px; background:black; text-align: center; position: relative; top:-50px; left: 25%;">
+<button class="padButt" style="position: relative; top:39px; left: 10%;">
     <p style="color: white; font-size: 20px; margin:0px; position: relative; top: 15px">
         Send cheeseburger to KDS
     </p>
-</div>
+</button>
 
-<div style="width:200px; height:100px; background:black; text-align: center; position: relative; top:-150px; left: 43%;">
+<button class="padButt" style="position: relative; top:51px; left: 13%;">
     <p style="color: white; font-size: 20px; margin:0px; position: relative; top: 15px">
         Send fries to KDS
     </p>
-</div>
+</button>
 
-<div style="width:200px; height:100px; background:black; text-align: center; position: relative; top:-250px; left: 61%;">
+<button class="padButt" style="position: relative; top:51px; left: 16%;">
     <p style="color: white; font-size: 20px; margin:0px; position: relative; top: 15px">
         Send Taco to KDS
     </p>
-</div>
+</button>
 
-<div style="width:200px; height:100px; background:black; text-align: center; position: relative; top:-350px; left: 79%;">
+<button class="padButt" style="position: relative; top:51px; left: 19%;">
     <p style="color: white; font-size: 20px; margin:0px; position: relative; top: 15px">
         Send ribs to KDS
     </p>
-</div>
+</button>
 
-<div style="width:300px; height:100px; background:black; text-align: center; position: relative; top:-250px; left: 39%;">
+<button class="padButtL" style="position: relative; top:200px; left: -33.5%;">
     <p style="color: white; font-size: 20px; margin:0px; position: relative; top: 15px">
         Send random cancel  to KDS
     </p>
-</div>
+</button>
 
-<div style="width:300px; height:100px; background:black; text-align: center; position: relative; top:-150px; left: 39%;">
+<button class="padButtL" style="position: relative; top:250px; left: 39%;">
     <p style="color: white; font-size: 20px; margin:0px; position: relative; top: 15px">
         Send clear to KDS
     </p>
-    </div>
+</button>
+
+<script>
+    function myFunction(){
+        localStorage.setItem("burger", "burger");
+        console.log("burger");
+    }
+</script>
+
+
+
 
 </body>
 </html>
