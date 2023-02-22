@@ -1,62 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>control panel</title>
+  <meta charset="UTF-8">
+  <title>control panel</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<button onclick="myFunction();" class="padButt"  style="position: relative; top:50px; left: 7%">
-    <p style="color: white; font-size: 20px; margin:0px;">
-        Send burger to KDS
-    </p>
-</button>
+<div id="buttonCont">
 
-<button class="padButt" style="position: relative; top:39px; left: 10%;">
-    <p style="color: white; font-size: 20px; margin:0px; position: relative; top: 15px">
-        Send cheeseburger to KDS
-    </p>
-</button>
-
-<button class="padButt" style="position: relative; top:51px; left: 13%;">
-    <p style="color: white; font-size: 20px; margin:0px; position: relative; top: 15px">
-        Send fries to KDS
-    </p>
-</button>
-
-<button class="padButt" style="position: relative; top:51px; left: 16%;">
-    <p style="color: white; font-size: 20px; margin:0px; position: relative; top: 15px">
-        Send Taco to KDS
-    </p>
-</button>
-
-<button class="padButt" style="position: relative; top:51px; left: 19%;">
-    <p style="color: white; font-size: 20px; margin:0px; position: relative; top: 15px">
-        Send ribs to KDS
-    </p>
-</button>
-
-<button class="padButtL" style="position: relative; top:200px; left: -33.5%;">
-    <p style="color: white; font-size: 20px; margin:0px; position: relative; top: 15px">
-        Send random cancel  to KDS
-    </p>
-</button>
-
-<button class="padButtL" style="position: relative; top:250px; left: 39%;">
-    <p style="color: white; font-size: 20px; margin:0px; position: relative; top: 15px">
-        Send clear to KDS
-    </p>
-</button>
+</div>
 
 <script>
-    function myFunction(){
+    const buttons = [
+        {
+            name: "Send burger to KDS",
+            onClick: myFunction
+        },
+        {
+            name: "Send cheeseburger to KDS"
+        },
+        {
+            name: "Send cheeseburger to KDS"
+        },
+        {
+            name: "Send cheeseburger to KDS"
+        },
+        {
+            name: "Send cheeseburger to KDS"
+        },
+        {
+            name: "Send cheeseburger to KDS"
+        },
+        {
+            name: "Send cheeseburger to KDS"
+        }
+    ]
+
+    buttons.forEach(b=>{
+        let button = document.createElement("button");
+        button.innerText = b.name;
+        if(b.onClick){
+            button.addEventListener("click", b.onClick);
+        }
+        let cont = document.createElement("div");
+        cont.append(button);
+        document.getElementById("buttonCont").append(cont);
+    });
+
+    function myFunction() {
         localStorage.setItem("burger", "burger");
         console.log("burger");
     }
 </script>
-
-
 
 
 </body>
