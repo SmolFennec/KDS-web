@@ -5,7 +5,7 @@ body {
     font-family: Avenir Next LT Pro, sans-serif;
     overflow-x: hidden;
     background: #40839c;
-    height: 759px;
+    height: 100%;
 }
 
 .controls{
@@ -57,7 +57,7 @@ img{
     padding: 1rem;
 }
 
-#buttonCont div>button{
+.button{
     background: black;
     color: white;
     font-size: 1.5rem;

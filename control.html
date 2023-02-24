@@ -6,51 +6,37 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
+<div style="height: 1rem"></div>
 <div id="buttonCont">
-
+  <button class="button" onclick="createOrder('Burger')">Send burger to KDS</button>
+  <button class="button">Send cheeseburger to KDS</button>
+  <button class="button">Send TACO to KDS</button>
+  <button class="button">Send Fries to KDS</button>
+  <button class="button">Send Ribs to KDS</button>
+  <button class="button">Send random cancel to KDS</button>
+  <button class="button" onclick="clear()">Send clear to KDS</button>
 </div>
 
 <script>
-    const buttons = [
-        {
-            name: "Send burger to KDS",
-            onClick: myFunction
-        },
-        {
-            name: "Send cheeseburger to KDS"
-        },
-        {
-            name: "Send cheeseburger to KDS"
-        },
-        {
-            name: "Send cheeseburger to KDS"
-        },
-        {
-            name: "Send cheeseburger to KDS"
-        },
-        {
-            name: "Send cheeseburger to KDS"
-        },
-        {
-            name: "Send cheeseburger to KDS"
-        }
-    ]
+  function createOrder(food) {
+        keyInc()
+        var key = localStorage.getItem("key")
+        localStorage.setItem("item"+key, food);
+        console.log(localStorage.getItem("item"+key));
+    }
 
-    buttons.forEach(b=>{
-        let button = document.createElement("button");
-        button.innerText = b.name;
-        if(b.onClick){
-            button.addEventListener("click", b.onClick);
-        }
-        let cont = document.createElement("div");
-        cont.append(button);
-        document.getElementById("buttonCont").append(cont);
-    });
+    function keyInc(){
+      var key = parseInt(localStorage.getItem("key"),10)
+      console.log(key)
+      key = key + 1
+      console.log(key)
+      localStorage.setItem("key",key)
+      console.log(localStorage.getItem("key"))
+    }
 
-    function myFunction() {
-        localStorage.setItem("burger", "burger");
-        console.log("burger");
+    function clear(){
+      localStorage.clear()
+      localStorage.setItem("key",1)
     }
 </script>
 
