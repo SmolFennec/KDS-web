@@ -13,7 +13,7 @@
   <button class="button" onclick="createOrder('Taco')">Send TACO to KDS </button>
   <button class="button" onclick="createOrder('Fries')">Send Fries to KDS</button>
   <button class="button" onclick="createOrder('Ribs')">Send Ribs to KDS</button>
-  <button class="button" >Send random cancel to KDS</button>
+  <button class="button" onclick="cancel()">Send random cancel to KDS</button>
   <button class="button" onclick="clear()">Send clear to KDS</button>
 </div>
 
@@ -38,9 +38,20 @@
       localStorage.clear()
       localStorage.setItem("key",1)
     }
-
+  var loop=true;
+  var key=localStorage.getItem("key")
+  console.log(loop)
     function cancel(){
-      random = Math.floor(Math.random() * 5) + 1;
+    while (loop == true){
+      random = Math.floor(Math.random() * key) + 1;
+      console.log(random);
+      try{
+
+      }
+      catch{
+
+      }
+    }
     }
 </script>
 
