@@ -1,99 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>control panel</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <title>control panel</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <div style="height: 1rem"></div>
 <div id="buttonCont">
-  <button class="button" onclick="createOrder('Burger')">Send burger to KDS</button>
-  <button class="button" onclick="createOrder('Cheeseburger')">Send cheeseburger to KDS</button>
-  <button class="button" onclick="createOrder('Taco')">Send TACO to KDS </button>
-  <button class="button" onclick="createOrder('Fries')">Send Fries to KDS</button>
-  <button class="button" onclick="createOrder('Ribs')">Send Ribs to KDS</button>
-  <button class="button" onclick="cancel()">Send random cancel to KDS</button>
-  <button class="button" onclick="clr()">Send clear to KDS</button>
-  <button class="button" onclick="show()">show local</button>
+    <button class="button" onclick="createOrder('Burger')">Send burger to KDS</button>
+    <button class="button" onclick="createOrder('Cheeseburger')">Send cheeseburger to KDS</button>
+    <button class="button" onclick="createOrder('Taco')">Send TACO to KDS</button>
+    <button class="button" onclick="createOrder('Fries')">Send Fries to KDS</button>
+    <button class="button" onclick="createOrder('Ribs')">Send Ribs to KDS</button>
+    <button class="button" onclick="cancel()">Send random cancel to KDS</button>
+    <button class="button" onclick="clr()">Send clear to KDS</button>
+    <button class="button" onclick="show()">show local</button>
 </div>
 
 <script>
-  function createOrder(food) {
+    function createOrder(food) {
         var key = localStorage.getItem("key");
-        localStorage.setItem("item"+key, food);
-        console.log(localStorage.getItem("item"+key));
-      keyInc()
+        localStorage.setItem("item" + key, food);
+        console.log(localStorage.getItem("item" + key));
+        keyInc()
     }
 
 
-    function keyInc(){
-      var key = parseInt(localStorage.getItem("key"),10)
-      console.log(key)
-      key = key + 1
-      console.log(key)
-      localStorage.setItem("key",key)
-      console.log(localStorage.getItem("key"))
+    function keyInc() {
+        var key = parseInt(localStorage.getItem("key"), 10)
+        console.log(key)
+        key = key + 1
+        console.log(key)
+        localStorage.setItem("key", key)
+        console.log(localStorage.getItem("key"))
     }
 
-    function KeyDec(){
-      var key = parseInt(localStorage.getItem("key"),10)
-      console.log(key)
-      key = key - 1
-      console.log(key)
-      localStorage.setItem("key",key)
-      console.log(localStorage.getItem("key"))
+    function KeyDec() {
+        var key = parseInt(localStorage.getItem("key"), 10)
+        console.log(key)
+        key = key - 1
+        console.log(key)
+        localStorage.setItem("key", key)
+        console.log(localStorage.getItem("key"))
     }
 
-    function CBack(start){
-    key= localStorage.getItem("key");
-    count=key-start;
-    console.log(count);
-    console.log(start)
-    for (i=count; i<key; i++){
-      console.log(localStorage.getItem("item"+i));
-      localStorage.setItem("item"+(i-1),localStorage.getItem("item"+i));
-    }
-    }
-
-
-
-    function cancel(){
-      var loop=true;
-      var key=localStorage.getItem("key")-1
-      console.log(loop)
-
-      while (loop === true){
-        random = Math.floor(Math.random() * key) + 1;
-        console.log(random);
-        if (localStorage.getItem("item"+random) != null) {
-          localStorage.removeItem("item" + random)
-          console.log("removed item" + random)
-          CBack(random+1)
-          KeyDec()
-          loop = false;
+    function CBack(start) {
+        key = localStorage.getItem("key");
+        count = key - start;
+        console.log(count);
+        console.log(start)
+        for (i = count; i <= key; i++) {
+            console.log(localStorage.getItem("item" + i));
+            localStorage.setItem("item" + (i - 1), localStorage.getItem("item" + i));
         }
-        else if (random == key)
-        {
-          loop = false;
-        }
+    }
+
+
+    function cancel() {
+        var loop = true;
+        var key = localStorage.getItem("key") - 1
         console.log(loop)
-      }
+
+        while (loop === true) {
+            random = Math.floor(Math.random() * key) + 1;
+            console.log(random);
+            if (localStorage.getItem("item" + random) != null) {
+                localStorage.removeItem("item" + random)
+                console.log("removed item" + random)
+                CBack(random + 1)
+                KeyDec()
+                loop = false;
+            } else if (random == key) {
+                loop = false;
+            }
+            console.log(loop)
+        }
     }
 
 
-    function show(){
-      console.log("key:"+localStorage.getItem("key"))
-      for (i=1; i<localStorage.getItem("key"); i++){
-        console.log("item"+i+":"+localStorage.getItem("item"+i))
-      }
+    function show() {
+        console.log("key:" + localStorage.getItem("key"))
+        for (i = 1; i < localStorage.getItem("key"); i++) {
+            console.log("item" + i + ":" + localStorage.getItem("item" + i))
+        }
     }
 
-  function clr(){
-    localStorage.clear()
-    localStorage.setItem("key",1)
-    console.log("cleared")
-  }
+    function clr() {
+        localStorage.clear()
+        localStorage.setItem("key", 1)
+        console.log("cleared")
+    }
 </script>
 
 
