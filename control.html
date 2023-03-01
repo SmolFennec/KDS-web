@@ -14,16 +14,18 @@
   <button class="button" onclick="createOrder('Fries')">Send Fries to KDS</button>
   <button class="button" onclick="createOrder('Ribs')">Send Ribs to KDS</button>
   <button class="button" onclick="cancel()">Send random cancel to KDS</button>
-  <button class="button" onclick="clear()">Send clear to KDS</button>
+  <button class="button" onclick="clr()">Send clear to KDS</button>
+  <button class="button" onclick="show()">show local</button>
 </div>
 
 <script>
   function createOrder(food) {
-        keyInc()
-        var key = localStorage.getItem("key")
+        var key = localStorage.getItem("key");
         localStorage.setItem("item"+key, food);
         console.log(localStorage.getItem("item"+key));
+      keyInc()
     }
+
 
     function keyInc(){
       var key = parseInt(localStorage.getItem("key"),10)
@@ -34,25 +36,59 @@
       console.log(localStorage.getItem("key"))
     }
 
-    function clear(){
-      localStorage.clear()
-      localStorage.setItem("key",1)
+    function KeyDec(){
+      var key = parseInt(localStorage.getItem("key"),10)
+      console.log(key)
+      key = key - 1
+      console.log(key)
+      localStorage.setItem("key",key)
+      console.log(localStorage.getItem("key"))
     }
-  var loop=true;
-  var key=localStorage.getItem("key")
-  console.log(loop)
+
+    function CBack(start){
+    key= localStorage.getItem("key");
+    count=key-start;
+    console.log(count);
+    for (i=0; i<count; i++){
+      console.log("item"+i+": "+localStorage.getItem("item"+i))
+
+    }
+
+
     function cancel(){
-    while (loop == true){
-      random = Math.floor(Math.random() * key) + 1;
-      console.log(random);
-      try{
+      var loop=true;
+      var key=localStorage.getItem("key")
+      console.log(loop)
 
-      }
-      catch{
-
+      while (loop === true){
+        random = Math.floor(Math.random() * key) + 1;
+        console.log(random);
+        if (localStorage.getItem("item"+random) != null) {
+          localStorage.removeItem("item" + random)
+          console.log("removed item" + random)
+          loop = false;
+        }
+        else if (random == key)
+        {
+          loop = false;
+        }
+        console.log(loop)
       }
     }
+
+
+    function show(){
+      console.log("key:"+localStorage.getItem("key"))
+      for (i=1; i<localStorage.getItem("key"); i++){
+        console.log("item"+i+":"+localStorage.getItem("item"+i))
+      }
     }
+
+  function clr(){
+    localStorage.clear()
+    localStorage.setItem("key",1)
+    console.log("cleared")
+  }
 </script>
 
 
