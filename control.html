@@ -49,15 +49,18 @@
     key= localStorage.getItem("key");
     count=key-start;
     console.log(count);
-    for (i=0; i<count; i++){
-      console.log("item"+i+": "+localStorage.getItem("item"+i))
-
+    console.log(start)
+    for (i=count; i<key; i++){
+      console.log(localStorage.getItem("item"+i));
+      localStorage.setItem("item"+(i-1),localStorage.getItem("item"+i));
     }
+    }
+
 
 
     function cancel(){
       var loop=true;
-      var key=localStorage.getItem("key")
+      var key=localStorage.getItem("key")-1
       console.log(loop)
 
       while (loop === true){
@@ -66,6 +69,8 @@
         if (localStorage.getItem("item"+random) != null) {
           localStorage.removeItem("item" + random)
           console.log("removed item" + random)
+          CBack(random+1)
+          KeyDec()
           loop = false;
         }
         else if (random == key)
