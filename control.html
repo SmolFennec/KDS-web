@@ -50,17 +50,19 @@
     function cancel() {
         let array = []
         let key = localStorage.getItem("key") - 1
+        console.log("key:" + key)
         random = Math.floor(Math.random() * key) + 1;
-        console.log(random);
         console.log("deleting item" + random)
 
         for (i = 1; i < key; i++) {
-          if (i==random) {
-            console.log("gone")
-          }
-          else {
-            array.push(localStorage.getItem("item" + i))
-          }
+            console.log("loop")
+            if (i==random) {
+                console.log("gone")
+            }
+            else {
+                array.push(localStorage.getItem("item" + i))
+
+            }
         }
 
         localStorage.clear()
